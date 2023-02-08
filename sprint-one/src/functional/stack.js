@@ -12,7 +12,7 @@ var Stack = function() {
     //E: ?
 
     //add value to top of stack
-    //this will allow the last value added to the stack to be found at the top
+    // will allow the last value added to the stack to be found at the top
     //using the key '1' for bottom of stack with the size function will allow for correct assignment of pushed val keys
     var topStack = someInstance.size(storage);
     storage[topStack + 1] = value;
