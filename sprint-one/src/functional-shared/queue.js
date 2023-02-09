@@ -4,21 +4,21 @@ var Queue = function() {
   var someInstance = {};
   someInstance.counts = {firstInLine: 1, lastInLine: 0};
   someInstance.storage = {};
-  _.extend(someInstance, Queue.queueMethods);
+  _.extend(someInstance, queueMethods);
 
   return someInstance;
 
 };
 
-Queue.queueMethods = {};
+var queueMethods = {};
 
-Queue.queueMethods.enqueue = function(value) {
+queueMethods.enqueue = function(value) {
   var nextQueuePosition = this.counts.lastInLine;
   this.storage[nextQueuePosition + 1] = value;
   this.counts.lastInLine++;
 }
 
-Queue.queueMethods.dequeue = function() {
+queueMethods.dequeue = function() {
   var firstQueuePosition = this.counts.firstInLine;
   var removedFromQueue = this.storage[firstQueuePosition];
   delete this.storage[firstQueuePosition];
@@ -26,7 +26,7 @@ Queue.queueMethods.dequeue = function() {
   return removedFromQueue;
 }
 
-Queue.queueMethods.size = function() {
+queueMethods.size = function() {
   this.counts.countSize = 0;
   for (var keys in this.storage) {
     this.counts.countSize++;
