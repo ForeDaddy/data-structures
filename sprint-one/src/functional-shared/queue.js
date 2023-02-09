@@ -16,7 +16,7 @@ queueMethods.enqueue = function(value) {
   var nextQueuePosition = this.counts.lastInLine;
   this.storage[nextQueuePosition + 1] = value;
   this.counts.lastInLine++;
-}
+};
 
 queueMethods.dequeue = function() {
   var firstQueuePosition = this.counts.firstInLine;
@@ -24,7 +24,7 @@ queueMethods.dequeue = function() {
   delete this.storage[firstQueuePosition];
   this.counts.firstInLine++;
   return removedFromQueue;
-}
+};
 
 queueMethods.size = function() {
   this.counts.countSize = 0;
@@ -32,6 +32,6 @@ queueMethods.size = function() {
     this.counts.countSize++;
   }
   return this.counts.countSize;
-}
+};
 
 
