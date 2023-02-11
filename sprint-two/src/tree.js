@@ -26,7 +26,7 @@ treeMethods.addChild = function(value) {
   }
 
   this.children.push(createNode(value));
-  console.log('new child added: ', createNode(value));
+  // console.log('new child added: ', createNode(value));
   //arraymethod added
 
 };
@@ -36,15 +36,15 @@ treeMethods.contains = function(target) {
   var returnBool = false;
 
   var innerFunction = function (target, node) {
-    console.log('target: ', target);
-    console.log('node.value: ', node.value);
-    console.log('node: ', node);
+    // console.log('target: ', target);
+    // console.log('node.value: ', node.value);
+    // console.log('node: ', node);
     if (node.value === target) {
       // return true;
       returnBool = true;
       return;
     }
-    console.log('see node children: ', node.children);
+    // console.log('see node children: ', node.children);
     if (node.children.length > 0) {
       // iterate through array
       for (var i = 0; i < node.children.length; i++) {
