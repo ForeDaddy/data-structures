@@ -9,8 +9,8 @@ var setPrototype = {};
 setPrototype.add = function(item) {
   if (item !== this._storage[item]) {
     this._storage[JSON.stringify(item)] = item;
-console.log('item: ', item);
-console.log('this._storage: ', this._storage);
+// console.log('item: ', item);
+// console.log('this._storage: ', this._storage);
   }
 };
 
