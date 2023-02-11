@@ -8,11 +8,11 @@ var HashTable = function() {
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   let value = [k, v];
-  console.log('bucket: ', this._storage.get(index));
+
 
   // if storage index is empty
   if (this._storage.get(index) === undefined) {
-    console.log('current value: ', value);
+
     let bucket = [];
     // insert empty array
     this._storage.set(index, bucket);
@@ -22,7 +22,7 @@ HashTable.prototype.insert = function(k, v) {
 
   } else {
     // if bucket length is greater than 1
-    console.log('touched insert else statement: ', this._storage.get(index));
+
     var length = this._storage.get(index).length;
     let bucket = this._storage.get(index);
 
