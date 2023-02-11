@@ -24,4 +24,15 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('add object to set', function() {
+    set.add({'a': 'apple', 2: 'two', false: false});
+
+    expect(set.contains({'a': 'apple', 2: 'two', false: false})).to.equal(true);
+  });
+
+  it('add array to set', function() {
+    set.add([0, 'blue', false, {'a': 'apple', 2: 'two', false: false}]);
+
+    expect(set.contains([0, 'blue', false, {'a': 'apple', 2: 'two', false: false}])).to.equal(true);
+  });
 });
