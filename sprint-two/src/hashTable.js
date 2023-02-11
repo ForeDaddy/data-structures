@@ -8,41 +8,62 @@ var HashTable = function() {
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   let value = [k, v];
-  let bucket = [];
+  console.log('bucket: ', this._storage.get(index));
+
   // if storage index is empty
-  if (this._storage.get[index] === undefined) {
+  if (this._storage.get(index) === undefined) {
+    console.log('current value: ', value);
+    let bucket = [];
     // insert empty array
     this._storage.set(index, bucket);
-    this._storage.set(index[0], value);
+    // this._storage.set(index[0], value);
+    // use get to grab bucket
+    this._storage.get(index).push(value);
+
   } else {
-    //set variable for length
-    //var bucketLength = this._storage.g
-    // this._storage.set(index[])
-    // insert at bucket.length
-    var bucketLength = this._storage.get(index).length;
-    this._storage.set(index[bucketLength], value);
+    // if bucket length is greater than 1
+    console.log('touched insert else statement: ', this._storage.get(index));
+    var length = this._storage.get(index).length;
+    let bucket = this._storage.get(index);
+
+    for (var i = 0; i < length; i++) {
+      var tupleKey = bucket[i][0];
+      // if at index 0, k === index 0
+      if (k === tupleKey) {
+        // return value at k
+        bucket[i][1] = v;
+      } else {
+        //push function
+        bucket.push(value);
+      }
+    }
+
   }
-  // console.log('bucket length: ', this._storage.get(index).length);
-
-
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  console.log('array: ', this._storage.get(index));
-  console.log('array at 0: ', this._storage.get(0));
+
   if (this._storage.get(index)) {
-    return this._storage.get(index)[1];
+    var bucket = this._storage.get(index);
+
+    // check if bucket:this._storage.get(index) is longer than 1
+    if (this._storage.get(index).length > 1) {
+      var length = this._storage.get(index).length;
+      // iterate through bucket
+      for (var i = 0; i < length; i++) {
+        var tupleKey = bucket[i][0];
+        // if at index 0, k === index 0
+        if (k === tupleKey) {
+          // return value at k
+          var value = bucket[i][1];
+          return value;
+        }
+      }
+    }
+
+    return bucket[0][1];
   }
-  // this._storage.get(index).length > 1
-  // if (this._storage.get(index).length > 1) {
-  //   // this._storage.each(this._storage.retrieve())
-
-  // }
-
-
-  // console.log('value: ', this._storage.get(index)[0]);
-  // console.log('k: ', k);
 };
 
 HashTable.prototype.remove = function(k) {
@@ -50,9 +71,6 @@ HashTable.prototype.remove = function(k) {
   this._storage.set(index, undefined);
 
 };
-
-var hashTable = new HashTable();
-console.log(hashTable);
 
 /*
  * Complexity: What is the time complexity of the above functions?
