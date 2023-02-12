@@ -160,5 +160,12 @@ HashTable.prototype.decreaseSize = function() {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-
+// .insert() = is O(1) when ignoring the functions called inside of .insert, O(n) when considering
+              // the time complexity of the functions called inside of .insert
+// .retreive() = O(1)
+// .remove() =
+// .doubleHash() =
+// .halveHash() =
+// .increaseSize() =
+// .decreaseSize() =
 

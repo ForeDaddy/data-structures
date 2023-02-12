@@ -92,3 +92,6 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// Node(), .addToTail(), and .removeHead() have a time complexity of O(1)
+// .contains() has a time complexity of O(n)

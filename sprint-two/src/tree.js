@@ -69,3 +69,6 @@ return returnBool;
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// .addChild() and .push() have a time complexity of  O(1)
+// .contains() has a time complexity of O(n)
